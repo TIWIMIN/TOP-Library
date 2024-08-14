@@ -15,6 +15,13 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBookToLibrary() {
-
+function addBookToLibrary(book) {
+    myLibrary.push(book);
 }
+
+function displayAllBooks() {
+    for (const book in myLibrary) {
+        
+    }
+}
+
