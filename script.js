@@ -61,5 +61,7 @@ let book1 = new Book("test", "author", "1", true);
 addBookToLibrary(book1);
 let book2 = new Book("test2", "author2", "2", false);
 addBookToLibrary(book2);  
+let book3 = new Book("test3", "author3", "222", false);
+addBookToLibrary(book3);
 
 displayAllBooks();
