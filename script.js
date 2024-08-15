@@ -45,7 +45,16 @@ function displayAllBooks() {
         const read = document.createElement("div"); 
         read.classList.add("read"); 
         card.appendChild(read); 
-        read.textContent = book.read; 
+        read.textContent = "read?"; 
+
+        const read_button = document.createElement("button");
+        read_button.classList.add("read-button"); 
+        book.read ? read_button.textContent = "x" : read_button.textContent = "";
+        read.appendChild(read_button);
+        read_button.addEventListener("click", () => {
+            book.read = !book.read;
+            book.read ? read_button.textContent = "x" : read_button.textContent = ""; 
+        });
 
         const remove = document.createElement("button"); 
         remove.classList.add("remove");
