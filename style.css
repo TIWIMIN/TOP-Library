@@ -48,35 +48,39 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .container {
     display: grid; 
-    grid-template: 3rem 2rem 1fr / 1fr 3fr; 
+    grid-template: rem 4rem 1fr / 1fr 3fr; 
     grid-auto-flow: column;
 }
 
 .your-library {
     font-size: 2rem;
+    margin: 1rem;
 }
 
 .new-book {
     width: 7rem; 
     height: 2rem;
+    margin: 1rem;
 }
 
 .library {
     grid-area: 3 / 1 / 4 / 3;
-    width: calc(100vw - 4rem); 
-    height: calc(100vh - 5rem);
+    width: 60rem; 
+    height: 75rem;
     display: grid; 
+    place-self: center;
     grid-auto-flow: row;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr); 
     margin: 1rem;
     justify-items: center;
+    align-items: center;
 }
 
 .card {
     display: grid; 
     grid-template: repeat(4, 1fr) / 1fr 2rem; 
-    width: 10rem;
-    height: 10rem;
+    width: 14rem;
+    height: 15rem;
     background: rgb(207, 207, 207); 
     border-radius: 1rem;
     padding: 1rem;
@@ -101,13 +105,15 @@ p, h1, h2, h3, h4, h5, h6 {
 .read-button {
     width: 1.5rem; 
     height: 1.5rem;
+    display: flex; 
+    place-items: center; 
 }
 
 .remove {
     grid-area: 1 / 2 / 2 / 3;
     width: 1.5rem;
     height: 1.5rem;
-    justify-self: center; 
-    align-self: center; 
-    text-align: center;
+    display: flex; 
+    place-items: center;
+    justify-self: center;
 }
