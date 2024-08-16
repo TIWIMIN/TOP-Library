@@ -100,6 +100,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .read {
     grid-area: 4 / 1 / 5 / 2; 
+    display: grid; 
+    grid-template-columns: 2rem 1fr; 
 }
 
 .read-button {
@@ -116,4 +118,14 @@ p, h1, h2, h3, h4, h5, h6 {
     display: flex; 
     place-items: center;
     justify-self: center;
+}
+
+dialog[open] {
+    display: grid;
+    place-self: center;
+    border-radius: 10px;
+}
+
+::backdrop {
+    opacity: 1;
 }

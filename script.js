@@ -1,4 +1,13 @@
 const myLibrary = []; 
+const library = document.querySelector(".library"); 
+const new_book = document.querySelector(".new-book");
+const dialog = document.querySelector("dialog"); 
+const submit_book = document.querySelector(".submit-book");
+
+const title_input = document.querySelector("#title-input");
+const author_input = document.querySelector("#author-input");
+const pages_input = document.querySelector("#pages-input");
+const read_input = document.querySelector("#read-input");
 
 function Book(title, author, pages, read) {
     this.title = title; 
@@ -20,7 +29,6 @@ function addBookToLibrary(book) {
 }
 
 function displayAllBooks() {
-    const library = document.querySelector(".library"); 
 
     for (const book of myLibrary) {
         const card = document.createElement("div"); 
@@ -45,7 +53,6 @@ function displayAllBooks() {
         const read = document.createElement("div"); 
         read.classList.add("read"); 
         card.appendChild(read); 
-        read.textContent = "read?"; 
 
         const read_button = document.createElement("button");
         read_button.classList.add("read-button"); 
@@ -56,15 +63,40 @@ function displayAllBooks() {
             book.read ? read_button.textContent = "x" : read_button.textContent = ""; 
         });
 
+        const read_text = document.createElement("span"); 
+        read_text.classList.add("read-text"); 
+        read.appendChild(read_text); 
+        read_text.textContent = "read?"; 
+
         const remove = document.createElement("button"); 
         remove.classList.add("remove");
         card.appendChild(remove); 
         remove.textContent = 'x';
         remove.addEventListener("click", () => {
             card.remove();
+            myLibrary.splice(myLibrary.indexOf(book), 1);
+            console.log(card);
         });
     }
 }
+
+new_book.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+submit_book.addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.close([title_input.value, author_input.value, pages_input.value, read_input.value]);
+});
+
+dialog.addEventListener("close", () => {
+    if (dialog.returnValue === "default") {
+        console.log("not working as intended"); 
+    }
+    let book_input = new Book(...dialog.returnValue); 
+    addBookToLibrary(book_input);
+    displayAllBooks(); 
+});
 
 let book1 = new Book("test", "author", "1", true); 
 addBookToLibrary(book1);
